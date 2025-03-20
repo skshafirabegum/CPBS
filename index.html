@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\"device-width\", initial-scale=1.0">
+    <title>Car Parking Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="moving-title">🚗 Car Parking Booking System 🚗</h1>
+    
+    <div class="parking-container">
+        <div class="slot" data-slot="1">Slot 1</div>
+        <div class="slot" data-slot="2">Slot 2</div>
+        <div class="slot" data-slot="3">Slot 3</div>
+        <div class="slot" data-slot="4">Slot 4</div>
+        <div class="slot" data-slot="5">Slot 5</div>
+        <div class="slot" data-slot="6">Slot 6</div>
+        <div class="slot" data-slot="7">Slot 7</div>
+        <div class="slot" data-slot="8">Slot 8</div>
+        <div class="slot" data-slot="9">Slot 9</div>
+        
+    </div>
+
+    <!-- Booking Form -->
+    <div id="booking-form" class="hidden">
+        <h2>Book Slot <span id="selected-slot"></span></h2>
+        
+        <label>Booker Name:</label>
+        <input type="text" id="booker-name" placeholder="Enter your name">
+
+        <label>Select Date:</label>
+        <input type="date" id="booking-date">
+
+        <label>Duration:</label>
+        <div class="duration-container">
+            <input type="number" id="hours" min="0" max="24" placeholder="Hours">
+            <input type="number" id="minutes" min="0" max="59" placeholder="Minutes">
+        </div>
+
+        <button id="confirm-booking">Confirm Booking</button>
+        <button id="cancel-booking">Cancel</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    
+    background: url('img.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    color: #fff; /* Ensures white color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow for better contrast */
+    font-weight: bold;
+}
+
+
+.moving-title {
+    display: inline-block;
+    animation: moveRightToLeft 20s linear infinite;
+}
+
+
+@keyframes moveRightToLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.parking-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.slot {
+    width: 120px;
+    height: 120px;
+    background-color: green;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.slot.occupied {
+    background-color: red;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+#booking-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.duration-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+input, button {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px;
+}
+</style>
